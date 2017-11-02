@@ -1,4 +1,4 @@
-from operations import *
+from operations import Operation
 
 # class stores dict of solutions
 # solution -> (depth, op_sequence)
@@ -47,21 +47,27 @@ def derive(start_from_number, operations, max_depth, findings, depth_so_far = 1,
                 operation_sequence = next_seq, current_number=next_num)
 
 
+from operations import o_add, o_sub, o_insert, o_mult, o_div, o_map, o_flip, o_del
+# USER INPUT BEGIN #################################
 
-# USER INPUT BEGIN
 start_num = 14
-min_steps = 5
-max_steps = 5
-solution_predicate = lambda x : x==12
+
+# all printed solutions will have a shortest path with step# in this range
+min_max_steps = (5, 5)
+
+# 'solution' here refers to the number REACHABLE by operations
+# use lambda x : True if you want all solutions
+solution_predicate = lambda x : True
+
 
 ops = [
     o_insert(6),
-    o_plus(5),
+    o_add(9),
     o_div(8),
     o_flip,
 ]
-# USER INPUT END
+# USER INPUT END #####################################
 
 f = Findings()
-derive(start_num, ops, max_steps, f)
-print('depth from', start_num, ':\n', f.print_sols_with_min(min_steps, solution_predicate))
+derive(start_num, ops, min_max_steps[1], f)
+print('depth from', start_num, ':\n', f.print_sols_with_min(min_max_steps[0], solution_predicate))

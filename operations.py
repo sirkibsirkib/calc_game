@@ -12,17 +12,7 @@ class Operation:
 
 
 
-def map_digit(input, old, new):
-    return int(
-        ''.join(str(input).replace(str(old), str(new)))
-    )
-
-def o_map(x, y):
-    printable = str(x) + '=>' + str(y)
-    func = lambda q : map_digit(q, x, y)
-    return Operation(printable, func)
-
-def o_plus(x):
+def o_add(x):
     printable = '+' + str(x)
     func = lambda q : q+x
     return Operation(printable, func)
@@ -30,11 +20,6 @@ def o_plus(x):
 def o_sub(x):
     printable = '-' + str(x)
     func = lambda q : q-x
-    return Operation(printable, func)
-
-def o_insert(x):
-    printable = '_' + str(x)
-    func = lambda q : q * 10 + x
     return Operation(printable, func)
 
 def o_mult(x):
@@ -45,6 +30,23 @@ def o_mult(x):
 def o_div(x):
     printable = '/' + str(x)
     func = lambda q : q/x
+    return Operation(printable, func)
+
+def o_insert(x):
+    printable = '_' + str(x)
+    func = lambda q : q * 10 + x
+    return Operation(printable, func)
+
+
+def map_digit(input, old, new):
+    return int(
+        ''.join(str(input).replace(str(old), str(new)))
+    )
+
+
+def o_map(x, y):
+    printable = str(x) + '=>' + str(y)
+    func = lambda q : map_digit(q, x, y)
     return Operation(printable, func)
 
 o_flip = Operation('+-', lambda x : -x)
