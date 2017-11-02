@@ -50,21 +50,21 @@ def derive(start_from_number, operations, max_depth, findings, depth_so_far = 1,
 from operations import o_add, o_sub, o_insert, o_mult, o_div, o_map, o_flip, o_del
 # USER INPUT BEGIN #################################
 
-start_num = 14
+start_num = 0
 
 # all printed solutions will have a shortest path with step# in this range
-min_max_steps = (5, 5)
+min_max_steps = (5,5)
 
 # 'solution' here refers to the number REACHABLE by operations
 # use lambda x : True if you want all solutions
-solution_predicate = lambda x : True
+solution_predicate = lambda x : x==245
 
 
 ops = [
-    o_insert(6),
-    o_add(9),
-    o_div(8),
+    o_sub(3),
+    o_insert(5),
     o_flip,
+    o_mult(4),
 ]
 # USER INPUT END #####################################
 

@@ -34,7 +34,7 @@ def o_div(x):
 
 def o_insert(x):
     printable = '_' + str(x)
-    func = lambda q : q * 10 + x
+    func = lambda q : q if q==0 else int(str(q) + str(x))
     return Operation(printable, func)
 
 
